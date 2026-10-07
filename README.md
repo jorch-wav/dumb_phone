@@ -1,6 +1,6 @@
 # dumb_phone
 
-Apps that make an old Android flip or keypad phone good to use again. Green on black, built for the
+Apps that make an old Android flip or keypad phone good to use again. Dark and themeable (56 colour themes), built for the
 keypad and D-pad (touch works too). Light enough for a 512 MB phone, and no Google needed.
 
 I made these for my own flip phone, an **Opel Mobile TouchFlip** (Android 8.1), and use it every day.
