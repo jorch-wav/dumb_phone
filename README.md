@@ -3,21 +3,21 @@
 Apps that make an old Android flip or keypad phone good to use again. Green on black, built for the
 keypad and D-pad (touch works too). Light enough for a 512 MB phone, and no Google needed.
 
-I made these for my own flip phone and use it every day. Here is what you get.
+I made these for my own flip phone and use it every day.
 
 | app | what it does |
 |---|---|
-| **Home** | A 3x3 tile home screen with a big clock, battery, Wi-Fi, signal and ringer. Number keys start dialling. `#` or the menu key opens a plain list of all your apps. |
-| **dumb phone** | Calls and contacts. Recent calls, contacts with T9 search (type `5-2-7` for "Jas…"), a dial pad, and a page per person to call, text or edit. |
-| **dumb radio** | Internet radio, sorted by genre. `+ add a station` searches 50,000+ stations worldwide ([radio-browser.info](https://www.radio-browser.info)). `*` favourites, `0` picks a random one, hold a station to remove it. Shows the song title when the station sends it. |
-| **dumb podcasts** | Opens in under a second. `+ add a podcast` searches Apple's directory. Remembers where you stopped. `1` skips back 15s, `3` forward 30s. |
-| **dumb aus trains** | Train times with no setup and no API key. See the Trains section below. |
-| **dumb weather** | Weather anywhere in the world, no key. See the Weather section below. |
+| **Home** | A 3x3 tile home screen: big clock, battery, Wi-Fi, signal and ringer, and a tile for each app. |
+| **dumb phone** | Calls and contacts, with T9 search (type `5-2-7` for "Jas…"), a dial pad, and a page per person to call, text or edit. |
+| **dumb radio** | Internet radio, sorted by genre. Add any of 50,000+ stations worldwide ([radio-browser.info](https://www.radio-browser.info)). Shows the song title when the station sends it. |
+| **dumb podcasts** | Opens in under a second. Search Apple's directory to add a show, and it remembers where you stopped. |
+| **dumb aus trains** | Train times with no setup and no API key (see Trains, below). |
+| **dumb weather** | Weather anywhere in the world, no key (see Weather, below). |
 | **dumb alarms / timer / sounds / screen time / themes** | A simple alarm clock and timer, a sound picker, a screen-time view, and the theme switcher. |
-| **snake** | The old Nokia-style Snake, in your theme. D-pad or `2 4 6 8` to steer, `OK` or `5` to pause. It speeds up as it grows and keeps your best score. |
-| **keyboard** | Normal multi-tap typing (press `2` three times for "c") with word suggestions on one thin line. No on-screen buttons, no internet permission, and it learns the words you use. |
+| **snake** | The old Nokia-style Snake, in your theme. Steer with the D-pad; it speeds up as it grows and keeps your best score. |
+| **keyboard** | Multi-tap typing with word suggestions on one thin line. No on-screen buttons, no internet permission, and it learns the words you use. |
 
-`setup.sh` can also install a few other apps from [F-Droid](https://f-droid.org) to round things out:
+`setup.sh` can also install a few other apps from [F-Droid](https://f-droid.org):
 [Fossify Messages](https://github.com/FossifyOrg/Messages) for texts, [Notally](https://github.com/OmGodse/Notally)
 for notes, and [Organic Maps](https://organicmaps.app) with `--maps`.
 
@@ -28,12 +28,12 @@ model), so it works with no signal and nothing is sent anywhere.
 ## Will it work on my phone?
 
 You need **Android 6.0 or newer**. The phone must run Android, not KaiOS. Check in Settings > About
-phone. The apps are built for small keypad screens (240x320) but they scale up fine.
+phone. The apps are built for small keypad screens (240x320) but they scale up.
 
 | phone | status |
 |---|---|
 | Opel Mobile TouchFlip (Android 8.1 Go) | tested, daily use |
-| Other Android keypad / flip phones (CAT S22 Flip, Sonim XP3plus, Kyocera DuraXV Extreme, Qin F21/F22 Pro, and similar) | should work, not tested yet. Let me know how it goes. |
+| Other Android keypad / flip phones | should work, not tested yet. Let me know how it goes. |
 | Normal touchscreen Android phones | work, but the apps are made for keys |
 | KaiOS phones (Nokia 2780 / 2760 Flip, Alcatel Go Flip, etc.) | no. KaiOS can't run Android apps. |
 
@@ -172,25 +172,6 @@ The keyboard can't follow it live, so to match it build it with the theme baked 
 `DUMBPHONE_THEME=nord ./build.sh keyboard`, then `adb install -r dist/dumb_phone-keyboard.apk` (your
 keyboard settings stay).
 
-| theme | text | background | accent |
-|---|---|---|---|
-| phosphor | `95EE62` | `040605` | `FFB347` |
-| amber | `FFB347` | `080502` | `FFE3A3` |
-| nord | `88C0D0` | `2E3440` | `EBCB8B` |
-| gruvbox | `B8BB26` | `1D2021` | `FE8019` |
-| dracula | `BD93F9` | `21222C` | `FF79C6` |
-| catppuccin | `89B4FA` | `1E1E2E` | `F9E2AF` |
-| solarized | `2AA198` | `002B36` | `B58900` |
-| tokyo night | `7AA2F7` | `1A1B26` | `E0AF68` |
-| mono | `E6E6E6` | `000000` | `FFFFFF` |
-| everforest | `A7C080` | `2D353B` | `DBBC7F` |
-| rose pine | `EBBCBA` | `191724` | `F6C177` |
-| kanagawa | `DCD7BA` | `1F1F28` | `FF9E3B` |
-| monokai | `A6E22E` | `272822` | `F92672` |
-| one dark | `61AFEF` | `282C34` | `E5C07B` |
-| ayu | `39BAE6` | `0B0E14` | `FFB454` |
-| crimson | `FF5555` | `070202` | `FFB3B3` |
-
 ## Keys
 
 | where | keys |
@@ -238,7 +219,6 @@ dark-theme colours changed. Fonts are [JetBrains Mono](https://www.jetbrains.com
 and a subset of [Nerd Fonts](https://www.nerdfonts.com) symbols (MIT). Speech is
 [Vosk](https://alphacephei.com/vosk/) (Apache 2.0) via [JNA](https://github.com/java-native-access/jna)
 (Apache 2.0). Station search is [radio-browser.info](https://www.radio-browser.info), train times are
-[Transitous](https://transitous.org), weather is [Open-Meteo](https://open-meteo.com), all free and
-community or openly run. The bundled sounds are credited in `sounds/README.md`. The two wallpapers
+[Transitous](https://transitous.org), weather is [Open-Meteo](https://open-meteo.com), all free and open. The bundled sounds are credited in `sounds/README.md`. The two wallpapers
 are public-domain medieval manuscript images from the British Library (Harley 3244 and Royal 12 F
 xiii).
