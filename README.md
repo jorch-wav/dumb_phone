@@ -43,7 +43,7 @@ A couple of things differ between phones:
 - **The camera, maps, messages and web tiles** open whatever your phone has. For the best result,
   install Fossify Messages, Organic Maps, Notally and the Via browser from F-Droid.
 
-## Install (about 5 minutes)
+## Install
 
 You need a computer (Linux, macOS, or Windows with Git Bash or WSL) and the phone's USB cable.
 
@@ -94,7 +94,7 @@ Want to do it by hand? Install the APKs, press home and choose *Home*, then Sett
 Accessibility > *dumb_phone keys* > on. For voice typing, copy the model folder
 `vosk-model-small-en-us-0.15` to `Android/data/dumb_phone.home/files/vosk-model`.
 
-## Finish on the phone (about 3 minutes)
+## Finish on the phone
 
 `setup.sh` turns on everything it can. A few settings live inside other apps, and a computer isn't
 allowed to change those, so do them once by hand.
