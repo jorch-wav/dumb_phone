@@ -1,0 +1,14 @@
+# build outputs
+build/
+dist/
+cache/
+*.idsig
+# downloaded at build time
+tools/*.jar
+tools/android*
+tools/r8*
+home/libs/
+*/assets/*.ttf
+# secrets / private (never commit)
+keystore/
+private/

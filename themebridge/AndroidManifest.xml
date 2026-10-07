@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The theme bridge: Fossify apps (Messages, Phone…) take their colours from an app with this package
+     name ("Fossify Thank You"). This tiny stand-in hands them the dumb_phone theme instead, so they
+     change with it. It has no screen. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.fossify.thankyou" android:versionCode="2" android:versionName="1.7.22">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+    <permission android:name="org.fossify.android.permission.WRITE_GLOBAL_SETTINGS" android:protectionLevel="normal" />
+    <application android:label="dumb_phone theme bridge" android:hasCode="true">
+        <provider android:name=".ThemeBridge" android:authorities="org.fossify.android.provider" android:exported="true" />
+    </application>
+</manifest>

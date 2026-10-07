@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dumb_phone.home" android:versionCode="51" android:versionName="1.8.6">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="dumb_phone.keypad.permission.KEYS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application android:label="Home" android:allowBackup="true"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <activity android:name=".HomeActivity" android:theme="@style/Home" android:launchMode="singleTask" android:windowSoftInputMode="stateAlwaysHidden"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- "All apps" as its own launcher entry, so a key (Key Mapper: menu button) can open the list -->
+        <activity-alias android:name=".AllApps" android:label="All apps"
+            android:targetActivity=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- Volume buttons: themed volume bar instead of the stock grey one -->
+        <service android:name=".VolumeService" android:label="@string/volume_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/volume_service" />
+        </service>
+        <!-- "Themes" in the app list: pick a colour theme with a live preview -->
+        <activity android:name=".ThemeActivity" android:label="dumb themes" android:taskAffinity="dumb_phone.themes"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- "Weather" in the app list -->
+        <activity android:name=".WeatherActivity" android:label="dumb weather" android:taskAffinity="dumb_phone.weather"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- "Background" (home screen photo), opened from Themes -->
+        <activity android:name=".BackgroundActivity" android:label="Background" android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density" />
+        <!-- "Sounds": choose ringtone / alarm / message sound from the sound library -->
+        <activity android:name=".SoundsActivity" android:label="dumb sounds" android:taskAffinity="dumb_phone.sounds"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- "Clock": alarms + timer; the ringing screen; the receiver that fires and re-arms them -->
+        <activity android:name=".ClockActivity" android:label="dumb alarms" android:taskAffinity="dumb_phone.clock"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- other apps' "set an alarm" / "show alarms" come here instead of the stock clock -->
+            <intent-filter>
+                <action android:name="android.intent.action.SET_ALARM" />
+                <action android:name="android.intent.action.SHOW_ALARMS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TimerActivity" android:label="dumb timer" android:taskAffinity="dumb_phone.timer"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SET_TIMER" />
+                <action android:name="android.intent.action.SHOW_TIMERS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RingActivity" android:taskAffinity="dumb_phone.ring" android:launchMode="singleInstance"
+            android:excludeFromRecents="true" android:showOnLockScreen="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density" />
+        <receiver android:name=".Clock" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <!-- every 15 min with the screen off: let WhatsApp fetch new messages (no Google push on this phone) -->
+        <receiver android:name=".WhatsAppCheck" android:exported="false" />
+        <!-- the hotspot switches itself off after 10 min with nothing connected -->
+        <receiver android:name=".HotspotIdle" android:exported="false" />
+        <!-- "Screen time" in the app list -->
+        <activity android:name=".ScreenTimeActivity" android:label="dumb screen time" android:taskAffinity="dumb_phone.screentime"
+            android:excludeFromRecents="true"
+            android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|density">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- notifications for the home screen's count and panel -->
+        <service android:name=".Notifications" android:label="dumb_phone notifications"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <!-- which colour theme is chosen, read by the other dumb_phone apps -->
+        <provider android:name=".ThemeProvider" android:authorities="dumb_phone.theme" android:exported="true" />
+    </application>
+</manifest>

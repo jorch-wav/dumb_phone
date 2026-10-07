@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="volume_desc">themed volume bar for the volume buttons, and the back button while typing = speak to type.</string>
+    <string name="volume_label">dumb_phone keys</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home: no slide when it opens. The stock launcher (gwin) wipes our home task on every HOME / red key,
+         so Android rebuilds the screen each time; without this it slides in like a new screen. -->
+    <style name="Home" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>

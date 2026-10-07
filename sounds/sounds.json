@@ -1,0 +1,86 @@
+[
+  {
+    "file": "warm-marimba.ogg",
+    "title": "Warm Marimba",
+    "credit": "made for dumb_phone \u00b7 CC0",
+    "seconds": 10
+  },
+  {
+    "file": "lofi-keys.ogg",
+    "title": "Lo-Fi Keys",
+    "credit": "made for dumb_phone \u00b7 CC0",
+    "seconds": 10
+  },
+  {
+    "file": "pulse.ogg",
+    "title": "Pulse",
+    "credit": "made for dumb_phone \u00b7 CC0",
+    "seconds": 4
+  },
+  {
+    "file": "fd-ring.ogg",
+    "title": "Classic Ring",
+    "credit": "freedesktop.org sound theme \u00b7 CC BY-SA 3.0",
+    "seconds": 1
+  },
+  {
+    "file": "fd-alarm.ogg",
+    "title": "Alarm Bell",
+    "credit": "freedesktop.org sound theme \u00b7 CC BY-SA 3.0",
+    "seconds": 6
+  },
+  {
+    "file": "fd-chime.ogg",
+    "title": "Chime",
+    "credit": "freedesktop.org sound theme \u00b7 CC BY-SA 3.0",
+    "seconds": 1
+  },
+  {
+    "file": "fd-blip.ogg",
+    "title": "Blip",
+    "credit": "freedesktop.org sound theme \u00b7 CC BY-SA 3.0",
+    "seconds": 1
+  },
+  {
+    "file": "fd-bell.ogg",
+    "title": "Bell",
+    "credit": "freedesktop.org sound theme \u00b7 CC BY-SA 3.0",
+    "seconds": 0
+  },
+  {
+    "file": "material-ringtone.ogg",
+    "title": "Ringtone Minimal",
+    "credit": "Google Material sound kit \u00b7 CC BY 4.0",
+    "seconds": 8
+  },
+  {
+    "file": "material-alarm.ogg",
+    "title": "Alarm Gentle",
+    "credit": "Google Material sound kit \u00b7 CC BY 4.0",
+    "seconds": 21
+  },
+  {
+    "file": "material-ambient.ogg",
+    "title": "Notification Ambient",
+    "credit": "Google Material sound kit \u00b7 CC BY 4.0",
+    "seconds": 3
+  },
+  {
+    "file": "ocean-call.ogg",
+    "title": "Ocean Incoming Call",
+    "credit": "Guilherme Mar\u00e7al Silva \u00b7 KDE Plasma Ocean \u00b7 CC BY-SA 4.0",
+    "seconds": 4
+  },
+  {
+    "file": "ocean-alarm.ogg",
+    "title": "Ocean Alarm",
+    "credit": "Guilherme Mar\u00e7al Silva \u00b7 KDE Plasma Ocean \u00b7 CC BY-SA 4.0",
+    "seconds": 6
+  },
+  {
+    "file": "ocean-message.ogg",
+    "title": "Ocean Message",
+    "credit": "Guilherme Mar\u00e7al Silva \u00b7 KDE Plasma Ocean \u00b7 CC BY-SA 4.0",
+    "seconds": 2
+  }
+]

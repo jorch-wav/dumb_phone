@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dumb_phone.keypad" android:versionCode="4" android:versionName="1.8.3">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+    <!-- only our own apps (same signing key) may send it keys: the home app passes WhatsApp's back key on -->
+    <permission android:name="dumb_phone.keypad.permission.KEYS" android:protectionLevel="signature" />
+    <application android:label="Keyboard" android:allowBackup="true">
+        <service android:name=".KeypadService" android:label="dumb_phone keyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data android:name="android.view.im" android:resource="@xml/method" />
+        </service>
+    </application>
+</manifest>
