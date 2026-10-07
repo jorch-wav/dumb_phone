@@ -3,7 +3,9 @@
 Apps that make an old Android flip or keypad phone good to use again. Green on black, built for the
 keypad and D-pad (touch works too). Light enough for a 512 MB phone, and no Google needed.
 
-I made these for my own flip phone and use it every day.
+I made these for my own flip phone, an **Opel Mobile TouchFlip** (Android 8.1), and use it every day.
+That's the phone it's built and tested on. It should run on other Android keypad / flip phones too
+(Android 6+, not KaiOS), but I haven't tried any.
 
 | app | what it does |
 |---|---|
@@ -21,27 +23,10 @@ I made these for my own flip phone and use it every day.
 [Fossify Messages](https://github.com/FossifyOrg/Messages) for texts, [Notally](https://github.com/OmGodse/Notally)
 for notes, and [Organic Maps](https://organicmaps.app) with `--maps`.
 
-**Voice typing** is built in. In any text box, hold the voice key, talk, and let go. The words drop
-into the box. It runs on the phone itself (the small [Vosk](https://alphacephei.com/vosk/) English
-model), so it works with no signal and nothing is sent anywhere.
-
-## Will it work on my phone?
-
-You need **Android 6.0 or newer**. The phone must run Android, not KaiOS. Check in Settings > About
-phone. The apps are built for small keypad screens (240x320) but they scale up.
-
-| phone | status |
-|---|---|
-| Opel Mobile TouchFlip (Android 8.1 Go) | tested, daily use |
-| Other Android keypad / flip phones | should work, not tested yet. Let me know how it goes. |
-| Normal touchscreen Android phones | work, but the apps are made for keys |
-| KaiOS phones (Nokia 2780 / 2760 Flip, Alcatel Go Flip, etc.) | no. KaiOS can't run Android apps. |
-
-A couple of things differ between phones:
-- **The voice key** is `F9` by default, which is the side or back button on a lot of these phones.
-  If yours doesn't have one, hold `#` on the home screen and press the button you want to use.
-- **The camera, maps, messages and web tiles** open whatever your phone has. For the best result,
-  install Fossify Messages, Organic Maps, Notally and the Via browser from F-Droid.
+**Voice typing** is built in. In any text box, hold the voice key (the back-of-phone button on the
+TouchFlip), talk, and let go. The words drop into the box. It runs on the phone itself (the small
+[Vosk](https://alphacephei.com/vosk/) English model), so it works with no signal and nothing is sent
+anywhere. On a phone with no such button, hold `#` on the home screen and press the one you want.
 
 ## Install
 
