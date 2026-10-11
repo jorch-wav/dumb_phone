@@ -175,7 +175,7 @@ say "turning on the key service (volume bar, voice key, green key)"
 S=dumb_phone.home/dumb_phone.home.VolumeService
 cur=$(a shell settings get secure enabled_accessibility_services | tr -d '\r')
 [ "$cur" = null ] && cur=""
-rest=$(echo "$cur" | tr ':' '\n' | grep -v -x "$S" | paste -sd: - || true)
+rest=$(echo "$cur" | tr ':' '\n' | grep -v -x "$S" | paste -s -d: - || true)   # -s -d: (not -sd:) for macOS/BSD
 # off first, then on, so a reinstall rebinds it
 if [ -n "$rest" ]; then a shell settings put secure enabled_accessibility_services "$rest"; else a shell settings delete secure enabled_accessibility_services >/dev/null; fi
 sleep 1
@@ -202,7 +202,7 @@ say "letting Fossify apps follow the theme"
 for p in $(a shell pm list packages org.fossify. | tr -d '\r' | sed 's/package://' | grep -v thankyou); do
     if a shell dumpsys package "$p" | grep -q 'WRITE_GLOBAL_SETTINGS: granted=true'; then echo "  $p: ok"; continue; fi
     ap=$(a shell pm path "$p" | head -1 | sed 's/package://' | tr -d '\r')
-    tmp=$(mktemp --suffix=.apk)
+    tmp=$(mktemp); mv "$tmp" "$tmp.apk"; tmp="$tmp.apk"   # mktemp --suffix is GNU-only; do it portably for macOS
     a pull "$ap" "$tmp" >/dev/null && a install -r "$tmp" | tail -1 | sed "s/^/  $p: /"
     rm -f "$tmp"
     a shell am broadcast -a org.fossify.android.GLOBAL_CONFIG_UPDATED -p "$p" -f 0x20 >/dev/null 2>&1 || true
