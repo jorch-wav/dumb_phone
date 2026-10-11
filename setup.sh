@@ -12,6 +12,14 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+# `timeout` is a GNU/Linux tool and isn't on macOS by default, so this script defines a fallback.
+# It uses gtimeout (from `brew install coreutils`) if present, otherwise just runs the command with no
+# time limit. The timeouts here are only a safety net against a hung adb, so running without one is fine.
+if ! command -v timeout >/dev/null 2>&1; then
+    if command -v gtimeout >/dev/null 2>&1; then timeout() { gtimeout "$@"; }
+    else timeout() { shift; "$@"; }; fi
+fi
+
 VOICE=1 EXTRAS=1 MAPS=0 OLD_HOMES=""
 for arg in "$@"; do
     case "$arg" in
