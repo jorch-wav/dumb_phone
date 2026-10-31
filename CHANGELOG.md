@@ -102,10 +102,10 @@ From the user's note:
   pink on black to sit with the Dracula theme.
 - Auxio works with the keys: an outline in the theme colour shows what's selected (it showed nothing);
   OK opens the row (Auxio's keys land on each row's ⋯ button), hold OK = that ⋯ menu; 5 play / pause,
-  4 previous, 6 next (like pocket). Only runs after a key press in Auxio.
+  4 previous, 6 next (like a desktop player). Only runs after a key press in Auxio.
 
 ## 1.7.27 (2026-10-05)
-- New app: **Music**, made to look like pocket's (cmus): a folding tree artist > album > tracks with
+- New app: **Music**, made to look like a desktop music player (cmus): a folding tree artist > album > tracks with
   times on the right, two filled now-playing bars (artist - title; ▶ time / length + progress) and the
   key hints on the last line. OK plays (the album from that track on), 5 pause, 4/6 prev/next, ← → fold,
   1 = album cover view (cover.jpg or the picture inside the song), 3 = jump to what's playing, * = shuffle
@@ -139,11 +139,11 @@ From the user's note:
 ## 1.7.22 (2026-10-05)
 - Health check on the home screen: if Messages, WhatsApp, Contacts, Radio, Podcasts, Notes or Maps
   can't open, or an app crashed in the last 24 h, an amber line under the phone's name says so
-  ("messages can't open · plug into pocket"). Runs only when home shows, at most every 10 minutes
+  ("messages can't open"). Runs only when home shows, at most every 10 minutes
   (a few package lookups); crashes are noted from the "has stopped" screen the key service already sees.
 - Home tiles open an app through its main screen when its launcher entry is gone, so you're never locked
   out of texts.
-- tools/check.sh: full health check from pocket (crashes, every app opens, texting/call apps, key
+- tools/check.sh: full health check (crashes, every app opens, texting/call apps, key
   service, home screen, alarms, WhatsApp checks, memory). Run after every install.
 - Fixed: Fossify Messages could stop opening (and crash on new texts) after a theme change. The theme
   bridge sent the theme's accent as the app-icon colour; Fossify then switched off all its launcher
