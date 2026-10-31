@@ -68,14 +68,14 @@ public class HomeActivity extends Activity {
             {"messages", g(0xF0369), "org.fossify.messages|com.moez.QKSMS", "sms"},
             {"radio", g(0xF0439), "dumb_phone.radio", ""},
             {"podcasts", g(0xF0994), "dumb_phone.podcasts", ""},
-            {"web", g(0xF059F), "mark.via.gp|mark.via", "browser"},
+            {"web", g(0xF059F), "mark.via.gp|mark.via|org.mozilla.fennec_fdroid", "browser"},
             {"maps", g(0xF034D), "app.organicmaps|net.osmand|net.osmand.plus|com.google.android.apps.maps", "maps"},
             {"notes", g(0xF082E), "com.omgodse.notally|com.philkes.notallyx|org.fossify.notes", ""},
             {"camera", g(0xF0100), "", "camera"},
     };
     /** Where to get a tile's app when the phone has none (shown as a hint). */
     static final String[][] SUGGEST = {
-            {"whatsapp", "WhatsApp or Signal"}, {"web", "Via browser (F-Droid)"}, {"messages", "Fossify Messages (F-Droid)"},
+            {"whatsapp", "WhatsApp or Signal"}, {"web", "Fennec browser (F-Droid)"}, {"messages", "Fossify Messages (F-Droid)"},
             {"maps", "Organic Maps (F-Droid)"}, {"notes", "Notally (F-Droid)"},
     };
     static final int COLS = 3;
@@ -427,7 +427,7 @@ public class HomeActivity extends Activity {
         String sick = Health.problems(this);                // an app that can't open / crashed: say so, in amber
         if (!sick.isEmpty()) {
             int at = ow.length();
-            ow.append("\n").append(sick).append(" · plug into pocket");
+            ow.append("\n").append(sick);
             ow.setSpan(new android.text.style.ForegroundColorSpan(AMBER), at, ow.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         owner.setMaxLines(sick.isEmpty() ? 2 : 4);

@@ -56,12 +56,22 @@ final class Health {
         for (int i = lines.length - 1; i >= 0; i--) {
             int sp = lines[i].indexOf(' ');
             if (sp < 0) continue;
-            try {
-                if (now - Long.parseLong(lines[i].substring(0, sp)) < 86_400_000L) return lines[i].substring(sp + 1) + " crashed";
-            } catch (NumberFormatException ignored) { }
-            break;
+            long t;
+            try { t = Long.parseLong(lines[i].substring(0, sp)); } catch (NumberFormatException e) { break; }
+            if (now - t >= 86_400_000L) break;                  // older than 24 h
+            String app = lines[i].substring(sp + 1).trim();
+            if (isSystem(app)) continue;                        // skip framework crashes: not actionable, just alarming
+            return app + " crashed";
         }
         return "";
+    }
+
+    /** Framework / vendor crashes the user can't act on (and that a low-spec phone throws now and then):
+     *  don't surface these on the home screen, they only look alarming. */
+    private static boolean isSystem(String app) {
+        String a = app.toLowerCase(java.util.Locale.getDefault()).replace(" ", "");
+        return a.isEmpty() || a.equals("system") || a.equals("systemui") || a.equals("android")
+                || a.startsWith("com.android") || a.startsWith("com.mediatek") || a.contains("gms");
     }
 
     /** From the key service: the screen says "<app> has stopped" / "keeps stopping". */
@@ -71,6 +81,7 @@ final class Health {
         if (k < 0) k = t.indexOf(" keeps stopping");
         if (k <= 0) return;
         String app = t.substring(0, k).trim().toLowerCase(java.util.Locale.getDefault());
+        if (isSystem(app)) return;                            // ignore framework/vendor crashes (not actionable)
         File f = new File(c.getFilesDir(), "crash.log");
         try {
             if (f.length() > 8_000) f.delete();                   // tiny: the last few crashes are enough
